@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { HelmetProvider } from 'react-helmet-async';
+import Routes from './routes';
+import CartContextProvider from './contexts/CartContext';
+import ProductsContextProvider from './contexts/ProductsContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <HelmetProvider>
+      <ProductsContextProvider>
+        <CartContextProvider>
+          <Routes />
+        </CartContextProvider>
+      </ProductsContextProvider>
+    </HelmetProvider>,
   document.getElementById('root')
 );
 
